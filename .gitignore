@@ -1,6 +1,8 @@
 record_video/
 streamlink_cookies.conf
 config.py
+test.py
+config.yaml
 bin/
 record_new.sh
 # Byte-compiled / optimized / DLL files

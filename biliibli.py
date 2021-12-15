@@ -7,6 +7,7 @@ import logging
 from pathlib import Path
 
 import config
+from utils import bot_send
 
 class Bilibili:
   def __init__(self, id) -> None:
@@ -63,14 +64,17 @@ class Bilibili:
       raise
     return retval
 
-  def run(self):
+  def run(self, group_id):
     try:
       while True:
         if not self.check_stream():
           time.sleep(config.LOOP_INTERVAL)
         else:
           break
-      self.file_name = f'bilibili_{self.id}_{time.strftime("%Y%m%d_%H%M%S", time.localtime())}_{self.title}.flv'
+      start_time = time.strftime("%Y%m%d_%H%M%S", time.localtime())
+      self.file_name = f'bilibili_{self.id}_{start_time}_{self.title}.flv'
+      message = f'开始录制直播间{self.id}\n标题:{self.title}\n开始时间:{start_time}'
+      bot_send(group_id, message)
       retval = self.download(self.file_name)
       self.logger.info(f'streamlink ret code:{retval} for {self.file_name}')
       return (retval, self.file_name)

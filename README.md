@@ -8,13 +8,15 @@ Bilibili直播自动录制、上传网盘([奶牛](https://cowtransfer.com)、On
 
 + 直播录制(streamlink)
 + 上传到奶牛网盘(付费版)
++ 调用[rclone](https://rclone.org)上传到支持的存储系统，例如OneDrive
++ 通过go-cqhttp进行通知发送
 
 ## 还需要做的功能
 
-+ 调用[rclone](https://rclone.org)上传到支持的存储系统，例如OneDrive
-+ 投稿到B站并设置定时发布
-+ 通过go-cqhttp进行通知发送
++ YAML作为配置文件
 + 使用文档
++ 上传失败重试
++ 投稿到B站并设置定时发布
 
 ## 支持与贡献
 
